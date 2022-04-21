@@ -1,0 +1,19 @@
+.Homebox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#fff;
+    height: 30vh;
+    width: 20vw;
+    border-radius: 10px;
+    color: #0d6efd;
+    border: 2px solid #0d6efd;
+}
+.main{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100%;
+    margin-top: 20px;
+    
+}
