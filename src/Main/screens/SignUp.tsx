@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import LabeledInput from "../components/LabeledInput";
 import { Link, useNavigate } from "react-router-dom";
 import "../Styles/LoginStyle.css";
+import axios from "axios";
 
 function SignUp() {
   const [inputValue, setInputValue] = useState({
@@ -11,6 +12,8 @@ function SignUp() {
     confirmPassword: "",
     errorMsg: "",
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const navigate = useNavigate();
 
   const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,21 +27,41 @@ function SignUp() {
     event.preventDefault();
     const { email, password, confirmPassword } = inputValue;
     if (email && password && confirmPassword) {
+      setIsLoading(true);
       if (password === confirmPassword) {
-        console.log(inputValue);
-        navigate("/");
+        const Url = `https://secure-refuge-14993.herokuapp.com/add_user?username=${email}&password=${password}&role=${password}`;
+        axios.post(Url).then((res) => {
+          if (res.data.error == 0) {
+            navigate("/");
+          } else {
+            setInputValue({
+              ...inputValue,
+              errorMsg: res.data.message,
+            });
+            errorMsg();
+          }
+        });
       } else {
         setInputValue({
           ...inputValue,
           errorMsg: "password and confirm password should be same",
         });
+        errorMsg();
       }
+      setIsLoading(false);
     } else {
       setInputValue({
         ...inputValue,
         errorMsg: "field should not be empty",
       });
+      errorMsg();
     }
+  };
+
+  const errorMsg = () => {
+    setTimeout(() => {
+      setInputValue({ ...inputValue, errorMsg: "" });
+    }, 5000);
   };
 
   console.log(inputValue, "-------->");
@@ -71,12 +94,15 @@ function SignUp() {
           onchange={onchange}
         />
         <Button type="submit" className="LoginButton">
-          Sign Up
+          {isLoading ? <Spinner animation="border" size="sm" /> : "Sign Up"}
         </Button>
       </form>
       <Link to="/" className="LoginAlready">
         already a user? login instead
       </Link>
+      {inputValue.errorMsg && (
+        <p className="LoginError">{inputValue.errorMsg}</p>
+      )}
     </div>
   );
 }
