@@ -1,0 +1,56 @@
+
+.LogincontainerStyle {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100vh;
+    margin: auto;
+    padding: 40px 40px;   
+}
+.LabelInputContainer {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   margin-top:10px;
+   margin-bottom: 10px;
+}
+.loginLable{
+    margin-bottom:5px;
+    color: #454545;
+}
+.loginInput {
+    outline: none;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 40px;
+    color: #454545;
+    margin: 0 auto
+}
+.loginInput:focus{
+    border: 2px solid #0d6efd;
+    outline: none;
+}
+.LoginButton{
+    width: 100%;
+    margin: 15px auto ;
+}
+.LogiForm{
+    width: 100%;
+    background-color: #fff;
+}
+.LoginH1{
+    text-align: center;
+}
+.LoginAlready {
+    text-align: center;
+    border: none;
+    color: #0d6efd;
+    background-color: #fff;
+    text-decoration: none;
+}   
+.LoginAlready:hover{
+    color: red;
+}
