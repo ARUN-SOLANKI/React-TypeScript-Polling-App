@@ -5,7 +5,8 @@
     background-color: #fff;
     width: 100vh;
     margin: auto;
-    padding: 40px 40px;   
+    padding: 40px 40px;
+    margin-top: 20px;   
 }
 .LabelInputContainer {
    display: flex;
