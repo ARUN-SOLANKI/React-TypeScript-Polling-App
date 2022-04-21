@@ -64,7 +64,6 @@ function SignUp() {
     }, 5000);
   };
 
-  console.log(inputValue, "-------->");
   return (
     <div className="LogincontainerStyle">
       <form className="LogiForm" onSubmit={(e) => LoginSubmit(e)}>
