@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import ListBoxes from "../components/ListBoxes";
+import Navbar from "../components/Navbar";
 
 function Home() {
   const [Data, setData] = useState<string | null>("");
@@ -17,14 +18,7 @@ function Home() {
 
   return (
     <>
-      <Button
-        onClick={() => {
-          localStorage.clear();
-          navigate("/");
-        }}
-      >
-        Logout
-      </Button>
+      <Navbar />
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <ListBoxes title="All Polls" onclick={onclick} screen="AllPolls" />
         <ListBoxes

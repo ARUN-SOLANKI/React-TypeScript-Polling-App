@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+
 type ItemData = {
   _id: string;
   username: string;
@@ -23,6 +25,7 @@ function AllUsers() {
 
   return (
     <div>
+      <Navbar />
       <Table striped bordered hover variant="light">
         <thead>
           <tr>
