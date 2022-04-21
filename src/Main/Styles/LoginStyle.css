@@ -54,3 +54,10 @@
 .LoginAlready:hover{
     color: red;
 }
+.LoginError{
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    background-color: red;
+    display: block;
+}
