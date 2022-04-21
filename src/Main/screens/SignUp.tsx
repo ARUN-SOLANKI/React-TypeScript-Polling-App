@@ -13,6 +13,7 @@ function SignUp() {
     errorMsg: "",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  console.log(isLoading);
 
   const navigate = useNavigate();
 
@@ -26,21 +27,32 @@ function SignUp() {
   const LoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { email, password, confirmPassword } = inputValue;
+
     if (email && password && confirmPassword) {
-      setIsLoading(true);
       if (password === confirmPassword) {
+        setIsLoading(true);
         const Url = `https://secure-refuge-14993.herokuapp.com/add_user?username=${email}&password=${password}&role=${password}`;
-        axios.post(Url).then((res) => {
-          if (res.data.error == 0) {
-            navigate("/");
-          } else {
-            setInputValue({
-              ...inputValue,
-              errorMsg: res.data.message,
-            });
-            errorMsg();
-          }
-        });
+
+        axios
+          .post(Url)
+          .then((res) => {
+            if (res.data.error === 1) {
+              setIsLoading(false);
+              setInputValue({
+                ...inputValue,
+                errorMsg: res.data.message,
+              });
+              errorMsg();
+            }
+            if (res.data.error == 0) {
+              setIsLoading(false);
+              navigate("/");
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            setIsLoading(false);
+          });
       } else {
         setInputValue({
           ...inputValue,
@@ -48,7 +60,6 @@ function SignUp() {
         });
         errorMsg();
       }
-      setIsLoading(false);
     } else {
       setInputValue({
         ...inputValue,
@@ -64,6 +75,13 @@ function SignUp() {
     }, 5000);
   };
 
+  //   else {
+  //     setInputValue({
+  //       ...inputValue,
+  //       errorMsg: res.data.message,
+  //     });
+  //     errorMsg();
+  //   }
   return (
     <div className="LogincontainerStyle">
       <form className="LogiForm" onSubmit={(e) => LoginSubmit(e)}>
