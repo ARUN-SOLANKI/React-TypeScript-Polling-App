@@ -1,4 +1,10 @@
+.MainContainer{
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 .PollsContainer{
+    display: grid;
     background-color: #fff;
     margin: 10px;
     padding: 10px;
@@ -38,8 +44,57 @@
     border: 2px solid #0d6efd;
     padding:5px 10px  5px 10px ;
     border-radius: 5px;
+    width: 70px;
+    margin-left: 10px;
 }
 .deleteButton:hover{
+    background-color: #0d6efd;
+    color: #fff;
+}
+.btncontainer{
+    display:flex;
+    /* width: 33%; */
+    justify-content: space-between;
+}
+.NewOptionBtn{
+    background-color: #0d6efd;
+    color: #fff;
+    border:2px solid #0d6efd;
+    padding: 2px 5px;
+    border-radius: 5px;
+    width: 100%;
+}
+.NewOptionBtn:hover{
+    background-color: #fff;
+    color: #454545;
+    border:2px solid #0d6efd;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+.MainOptionContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.deleteOptionButton{
+    background-color: #fff;
+    border: 2px solid #0d6efd;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+.deleteOptionButton:hover{
+    background-color: #0d6efd;
+    color: #fff;
+}
+.submitPollBtn{
+    background-color: #fff;
+    border: 2px solid #0d6efd;
+    border-radius: 5px;
+    padding: 0px 5px;
+    margin-top: 10px;
+}
+.submitPollBtn:hover{
     background-color: #0d6efd;
     color: #fff;
 }
