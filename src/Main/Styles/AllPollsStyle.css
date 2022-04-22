@@ -1,100 +1,106 @@
-.MainContainer{
-    width: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.MainContainer {
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.PollsContainer{
-    display: grid;
-    background-color: #fff;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
+.PollsContainer {
+  display: grid;
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
-.optionContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 10px;
+.optionContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
 }
-.checkButton{
-    height: 25px;
-    width: 25px;
-    background-color:#fff;
-    border:2px solid #ccc;
+.checkButton {
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 2px solid #ccc;
 }
-.checkButton:hover{
-    border:2px solid #0d6efd;
+.checkButtonTrue {
+  height: 25px;
+  width: 25px;
+  background-color: #0d6efd;
+  border: none;
 }
-.option{
-    font-size: 18px;
-   margin-bottom: 0px;
-   margin-left: 15px;
+.checkButton:hover {
+  border: 2px solid #0d6efd;
 }
-.QuestionContent{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+.option {
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-left: 15px;
 }
-.Question{
-    display: inline-block;
+.QuestionContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-.deleteButton{
-    background-color: #fff;
-    border: 2px solid #0d6efd;
-    padding:5px 10px  5px 10px ;
-    border-radius: 5px;
-    width: 70px;
-    margin-left: 10px;
+.Question {
+  display: inline-block;
 }
-.deleteButton:hover{
-    background-color: #0d6efd;
-    color: #fff;
+.deleteButton {
+  background-color: #fff;
+  border: 2px solid #0d6efd;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  width: 70px;
+  margin-left: 10px;
 }
-.btncontainer{
-    display:flex;
-    /* width: 33%; */
-    justify-content: space-between;
+.deleteButton:hover {
+  background-color: #0d6efd;
+  color: #fff;
 }
-.NewOptionBtn{
-    background-color: #0d6efd;
-    color: #fff;
-    border:2px solid #0d6efd;
-    padding: 2px 5px;
-    border-radius: 5px;
-    width: 100%;
+.btncontainer {
+  display: flex;
+  /* width: 33%; */
+  justify-content: space-between;
 }
-.NewOptionBtn:hover{
-    background-color: #fff;
-    color: #454545;
-    border:2px solid #0d6efd;
-    padding: 2px 5px;
-    border-radius: 5px;
+.NewOptionBtn {
+  background-color: #0d6efd;
+  color: #fff;
+  border: 2px solid #0d6efd;
+  padding: 2px 5px;
+  border-radius: 5px;
+  width: 100%;
 }
-.MainOptionContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 10px;
+.NewOptionBtn:hover {
+  background-color: #fff;
+  color: #454545;
+  border: 2px solid #0d6efd;
+  padding: 2px 5px;
+  border-radius: 5px;
 }
-.deleteOptionButton{
-    background-color: #fff;
-    border: 2px solid #0d6efd;
-    border-radius: 5px;
-    padding: 0px 5px;
+.MainOptionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
 }
-.deleteOptionButton:hover{
-    background-color: #0d6efd;
-    color: #fff;
+.deleteOptionButton {
+  background-color: #fff;
+  border: 2px solid #0d6efd;
+  border-radius: 5px;
+  padding: 0px 5px;
 }
-.submitPollBtn{
-    background-color: #fff;
-    border: 2px solid #0d6efd;
-    border-radius: 5px;
-    padding: 0px 5px;
-    margin-top: 10px;
+.deleteOptionButton:hover {
+  background-color: #0d6efd;
+  color: #fff;
 }
-.submitPollBtn:hover{
-    background-color: #0d6efd;
-    color: #fff;
+.submitPollBtn {
+  background-color: #fff;
+  border: 2px solid #0d6efd;
+  border-radius: 5px;
+  padding: 0px 5px;
+  margin-top: 10px;
+}
+.submitPollBtn:hover {
+  background-color: #0d6efd;
+  color: #fff;
 }
