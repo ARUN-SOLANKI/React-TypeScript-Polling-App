@@ -53,7 +53,6 @@ function Polls({ item, AllPollData }: itemProps) {
       console.error(error);
     }
   };
-  console.log(item, "------=======> item");
 
   return (
     <>
