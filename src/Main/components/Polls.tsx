@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
+
 type itemProps = {
   item: {
     _id: string;
@@ -14,6 +16,9 @@ type itemProps = {
 function Polls({ item, AllPollData }: itemProps) {
   const [token, setToken] = useState<string | null>("");
   const [selectedOption, setSelectedOption] = useState<string | null>("");
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   useEffect(() => {
     const UserToken = localStorage.getItem("token");
     setToken(UserToken);
@@ -44,6 +49,7 @@ function Polls({ item, AllPollData }: itemProps) {
     AllPollData();
   };
   const submitPoll = async (id: string) => {
+    setIsLoading(true);
     try {
       const url = `https://secure-refuge-14993.herokuapp.com/do_vote?id=${id}&option_text=${selectedOption}`;
       const res = await axios.post(url, null, {
@@ -52,6 +58,7 @@ function Polls({ item, AllPollData }: itemProps) {
     } catch (error) {
       console.error(error);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -84,7 +91,10 @@ function Polls({ item, AllPollData }: itemProps) {
                       ? "checkButtonTrue"
                       : "checkButton"
                   }
-                  onClick={() => setSelectedOption(newitem.option)}
+                  onClick={() => {
+                    setSelectedOption(newitem.option);
+                    setIsDisabled(false);
+                  }}
                 ></button>
                 <p className="option">{newitem.option}</p>
               </div>
@@ -101,8 +111,16 @@ function Polls({ item, AllPollData }: itemProps) {
         <button className="NewOptionBtn" onClick={() => addNewOption(item._id)}>
           Add new options
         </button>
-        <button className="submitPollBtn" onClick={() => submitPoll(item._id)}>
-          Submit Your Poll
+        <button
+          className="submitPollBtn"
+          disabled={isDisabled}
+          onClick={() => submitPoll(item._id)}
+        >
+          {isLoading ? (
+            <Spinner animation="border" size="sm" />
+          ) : (
+            "Submit Your Poll"
+          )}
         </button>
       </div>
     </>
